@@ -1,122 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
     <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <title>Antebellum</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--===============================================================================================-->
-        <link rel="icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}"/>
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animsition/css/animsition.min.css') }}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/alert.css') }}">
-        <!--===============================================================================================-->
+        <meta content="Admin Dashboard" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/metismenu.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
     </head>
+
     <body>
 
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-                <form class="login100-form validate-form flex-sb flex-w" method="post" action="{{ route('autenticate') }}">
-                    @csrf
-                    <span class="login100-form-title p-b-32">
-                        Antebellum
-                    </span>
+        <!-- Background -->
+        <div class="account-pages"></div>
+        <!-- Begin page -->
+        <div class="wrapper-page">
 
-                    @if (session('error'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ session('error') }}
-                        </div>
-                    @endif
+            <div class="card">
+                <div class="card-body">
 
-                    <span class="txt1 p-b-11">
-                            Username
-                        </span>
-                    <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-                        <input class="input100" type="text" name="username" >
-                        <span class="focus-input100"></span>
+                    <h3 class="text-center m-0">
+                        <a href="index.html" class="logo logo-admin"><img src="{{ asset('assets/images/Antebellum-logo.png') }}" height="80" alt="logo"></a>
+                    </h3>
+
+                    <div class="p-3">
+
+                        <form class="form-horizontal m-t-30" method="post" action="{{ route('autenticate') }}">
+
+                            @csrf
+
+                            @if (session('error'))
+                                <div class="alert alert-danger alertt" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
+                            <div class="form-group">
+                                <label for="username">Usuário</label>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Seu-email@dominio.com...">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userpassword">Senha</label>
+                                <input type="password" class="form-control" name="pass" id="userpassword" placeholder="Sua senha...">
+                            </div>
+
+                            <div class="form-group row m-t-20">
+                                <div class="col-12 flex-center">
+                                    <!--<div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                        <label class="custom-control-label" for="customControlInline">Lembrar</label>
+                                    </div>-->
+                                    <button class="btn btn-primary w-md waves-effect waves-light" tstyle="text-align: center !importtant" ype="submit">Entrar</button>
+                                </div>
+                            </div>
+
+                            <!--<div class="form-group m-t-10 mb-0 row">
+                                <div class="col-12 m-t-20">
+                                    <a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a>
+                                </div>
+                            </div>-->
+                        </form>
                     </div>
 
-                    <span class="txt1 p-b-11">
-                            Password
-                        </span>
-                    <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
-                            <span class="btn-show-pass">
-                                <i class="fa fa-eye"></i>
-                            </span>
-                        <input class="input100" type="password" name="pass" >
-                        <span class="focus-input100"></span>
-                    </div>
-
-                    <div class="flex-sb-m w-full p-b-48">
-                        <div class="contact100-form-checkbox">
-                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                            <label class="label-checkbox100" for="ckb1">
-                                Remember me
-                            </label>
-                        </div>
-
-                        <div>
-                            <a href="#" class="txt3">
-                                Forgot Password?
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <button type="submit" class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
-
-                </form>
+                </div>
             </div>
+
+            <div class="m-t-40 text-center">
+                <!-- <p class="text-white-50">Don't have an account ? <a href="#" class="text-white"> Signup Now </a> </p> -->
+                <p class="text-muted">© 2021 Antebellum.</p>
+            </div>
+
         </div>
-    </div>
 
+        <!-- END wrapper -->
+            
 
-    <div id="dropDownSelect1"></div>
+        <!-- jQuery  -->
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+        <script src="{{ asset('assets/js/waves.min.js') }}"></script>
 
-    <!--===============================================================================================-->
-    <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-    <!--===============================================================================================-->
-    <script src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>
-    <!--===============================================================================================-->
-    <script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <!--===============================================================================================-->
-    <script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
-    <!--===============================================================================================-->
-    <script src="{{ asset('vendor/daterangepicker/moment.min.js') }}"></script>
-    <script src="{{ asset('vendor/daterangepicker/daterangepicker.js') }}"></script>
-    <!--===============================================================================================-->
-    <script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
-    <!--===============================================================================================-->
-    <script src="{{ asset('js/main.js') }}"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        <script src="{{ asset('plugins/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 
-        gtag('config', 'UA-23581568-13');
-    </script>
+        <!-- App js -->
+        <script src="{{ asset('assets/js/app.js') }}"></script>
+
     </body>
+
 </html>

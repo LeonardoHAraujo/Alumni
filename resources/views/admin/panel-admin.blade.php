@@ -1,2 +1,9 @@
-<h1>Dashboard admin</h1>
-<a href="{{ route('logout') }}">Logout</a>
+@extends('admin.template')
+
+@section('title')
+    {{ $title }}
+@endsection
+
+@section('content')
+    <h1>{{ $title }} admin</h1>
+@endsection

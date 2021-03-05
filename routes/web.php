@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,13 @@ Route::post('/autenticate', [HomeController::class, 'autenticate'])->name('auten
 
 Route::middleware(['auth'])->group(function() {
 
+    # USERS LEVEL
     Route::get('/admin', [HomeController::class, 'admin'])->name('admin');
     Route::get('/students', [HomeController::class, 'students'])->name('students');
-    Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 
+    # SECTION MAIN SETTINGS
+    Route::get('/users', [SettingsController::class, 'users'])->name('users');
+
+    # ROUTE LOGOUT
+    Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 });
