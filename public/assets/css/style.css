@@ -74,10 +74,10 @@ p {
   line-height: 1.7;
 }
 
-.alertt {
-  color: #721c24 !important;
-  background-color: #f8d7da !important;
-  border-color: #f5c6cb !important;
+.force-success-alert {
+  color: #155724 !important;
+  background-color: #d4edda !important;
+  border-color: #c3e6cb !important;
 }
 
 .flex-center {
@@ -91,6 +91,31 @@ p {
 
 .pd-right {
   padding-right: 25px;
+}
+
+.div-btn-create {
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.align-checkbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.width-alert {
+  margin: auto;
+  margin-top: 1em;
+  width: 90%;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
 
 svg {

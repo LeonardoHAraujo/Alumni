@@ -27,6 +27,10 @@ Route::middleware(['auth'])->group(function() {
     # SECTION MAIN SETTINGS
     Route::get('/users', [SettingsController::class, 'users'])->name('users');
 
+    # ROUTE OF THE CRUD USERS
+    Route::post('/createUsers', [SettingsController::class, 'create']);
+    Route::post('/deleteUsers', [SettingsController::class, 'delete']);
+
     # ROUTE LOGOUT
     Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 });
