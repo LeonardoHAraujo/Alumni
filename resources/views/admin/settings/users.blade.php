@@ -44,7 +44,14 @@
                         @endif
                     </td>
                     <td>
-                        <button class="btn btn-warning" data-id="{{ $user->id }}">
+                        <button 
+                            class="btn btn-warning" 
+                            btn-edit 
+                            data-id="{{ $user->id }}"
+                            data-name="{{ $user->name }}"
+                            data-email="{{ $user->email }}"
+                            data-func="{{ $user->isAdmin }}"
+                        >
                             <i class="fas fa-pencil-alt"></i>
                         </button>
 
@@ -129,5 +136,5 @@
     <script src="{{ asset('assets/pages/datatables.init.js') }}"></script>
 
     <!-- My script -->
-    <script src="{{ asset('js/index.js') }}"></script>
+    <script src="{{ asset('js/user/index.js') }}"></script>
 @endsection

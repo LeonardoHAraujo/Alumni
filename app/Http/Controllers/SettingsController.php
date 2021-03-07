@@ -11,7 +11,7 @@ class SettingsController extends Controller
     public function users()
     {
         $users = User::select('id', 'name', 'email', 'isActive', 'isAdmin')->get();
-        return view('admin.users', ['title' => 'Usuários', 'users' => $users]);
+        return view('admin.settings.users', ['title' => 'Usuários', 'users' => $users]);
     }
 
     public function create(Request $request)
@@ -56,7 +56,51 @@ class SettingsController extends Controller
         }
     }
 
-    public function delete(Request $request) {
+    public function update(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'pass' => 'required',
+            'confirmPass' => 'required',
+        ]);
+
+        if ($request->pass !== $request->confirmPass) {
+            die();
+        }
+
+        $isAdmin = isset($request->func) ? 1 : 0;
+
+        try {
+            
+            $user = User::find($request->id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->isAdmin = $isAdmin;
+            $user->password = Hash::make($request->pass);
+            $user->save();
+
+            $response = [
+                'status' => 200,
+                'message' => 'Usuário atualizado com sucesso.'
+            ];
+
+            return $response;
+
+        } catch (\Throwable $th) {
+
+            $response = [
+                'status' => 400,
+                'message' => 'Usuário já existente.'
+            ];
+
+            return $response;
+        }
+    }
+
+    public function delete(Request $request) 
+    {
         $request->validate([
             'id' => 'required'
         ]);

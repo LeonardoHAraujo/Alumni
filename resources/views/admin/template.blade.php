@@ -28,7 +28,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="#" class="logo">
+                    <a href="{{ route('admin') }}" class="logo">
                         <span>
                             <img src="assets/images/logo.png" alt="" width="172" height="40">   
                         </span>
@@ -100,7 +100,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     <!-- item-->
-                                    <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5"></i> Perfil</a>
+                                    <a class="dropdown-item" href="{{ route('profile') }}"><i class="mdi mdi-account-circle m-r-5"></i> Perfil</a>
                                     <!--<a class="dropdown-item" href="#"><i class="mdi mdi-wallet m-r-5"></i> My Wallet</a>-->
                                     <!--<a class="dropdown-item d-block" href="#"><i class="mdi mdi-settings m-r-5"></i> Settings</a>-->
                                     <!--<a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5"></i> Lock screen</a>-->

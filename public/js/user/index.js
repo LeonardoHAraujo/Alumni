@@ -20,20 +20,18 @@ $(document).ready(e => {
     $table.on('click', '[btn-edit]', $.proxy(onBtnEditClick))
 
     function onBtnEditClick(e) {
-        $('#myModalLabel').text('Editar Cliente')
+        $('#id-title-modal').text('Editar Usuário')
         $('#id').val($(e.currentTarget).attr("data-id"))
 
         let name = $(e.currentTarget).attr("data-name")
-        let status = $(e.currentTarget).attr("data-status")
-        let datePayment = $(e.currentTarget).attr("data-payment")
-        let value = $(e.currentTarget).attr("data-value")
+        let email = $(e.currentTarget).attr("data-email")
+        let func = $(e.currentTarget).attr("data-func")
 
-        $('#nome').val(name)
-        $('#status').val(status)
-        $('#dataOfPayment').val(datePayment)
-        $('#value').val(value)
+        $('#name').val(name)
+        $('#email').val(email)
+        func == 1 ? $('#func').prop("checked", true) : $('#func').prop("checked", false)
 
-        $('#modalCreate').modal('show')
+        $('#modal').modal('show')
     }
 
     // DELETE CLIENT
@@ -114,7 +112,6 @@ $(document).ready(e => {
 			alert.removeClass('hide')
 			alert.addClass('show')
 
-			clearInputs()
 			clearAlert(alert)
 
 		} else if(pass.val() !== confirmPass.val()) {
@@ -124,7 +121,6 @@ $(document).ready(e => {
 			alert.removeClass('hide')
 			alert.addClass('show')
 
-			clearInputs()
 			clearAlert(alert)
 
         } else if(id.val() === '') {
@@ -170,33 +166,45 @@ $(document).ready(e => {
             })
 		} else {
 
-            /*$.ajax({
+            $.ajax({
                 type: 'POST',
-                url: "../service/updateClients.php",
+                url: "/updateUsers",
                 data: {
+                    _token : csrf,
                     id : id.val(),
                     name : name.val(),
-                    status : status.val(),
-                    dataOfPayment : dataOfPayment.val(),
-                    value : value.val()
+                    email : email.val(),
+                    func : func.val(),
+                    pass : pass.val(),
+                    confirmPass : confirmPass.val()
                 },
                 success: function (data) {
-                    alert.addClass('alert-success')
-                    alert.text('Dados enviados!')
-                    alert.removeClass('hide')
-                    alert.addClass('show')
+                    if(data.status === 200) {
+                        alert.addClass('force-success-alert')
+                        alert.text(data.message)
+                        alert.removeClass('hide')
+                        alert.addClass('show')
 
-                    clearInputs()
-                    clearAlert(alert)
-                    setTimeout(() => {
-                        location.reload()
-                        $('#modalSuporte').modal('hide')
-                    }, 3000)
+                        clearInputs()
+                        clearAlert(alert)
+                        setTimeout(() => {
+                            location.reload()
+                            $('#modal').modal('hide')
+                        }, 3000)
+
+                    } else if(data.status === 400) {
+                        alert.addClass('alert-primary')
+                        alert.text(data.message)
+                        alert.removeClass('hide')
+                        alert.addClass('show')
+
+                        clearAlert(alert)
+                    }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     console.log(textStatus)
                 }
-            })*/
+            })
         }
     })
 })
