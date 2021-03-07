@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('login');
-Route::post('/autenticate', [HomeController::class, 'autenticate'])->name('autenticate');
+Route::post('/autenticate', [AuthController::class, 'autenticate'])->name('autenticate');
 
 Route::middleware(['auth'])->group(function() {
 
@@ -27,6 +28,7 @@ Route::middleware(['auth'])->group(function() {
 
     # PAGE PROFILE
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/updateProfile', [ProfileController::class, 'update'])->name('updateProfile');
 
     # SECTION MAIN SETTINGS
     Route::get('/users', [SettingsController::class, 'users'])->name('users');
@@ -37,5 +39,5 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/deleteUsers', [SettingsController::class, 'delete']);
 
     # ROUTE LOGOUT
-    Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

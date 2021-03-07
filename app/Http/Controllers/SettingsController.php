@@ -10,7 +10,7 @@ class SettingsController extends Controller
 {
     public function users()
     {
-        $users = User::select('id', 'name', 'email', 'isActive', 'isAdmin')->get();
+        $users = User::select('id', 'name', 'lastName', 'email', 'isActive', 'isAdmin')->get();
         return view('admin.settings.users', ['title' => 'Usuários', 'users' => $users]);
     }
 

@@ -34,7 +34,7 @@
         @foreach($users as $user)
             @if($user->isActive === 1)
                 <tr>
-                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->name }} {{ $user->lastName }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
                         @if($user->isAdmin == 1)

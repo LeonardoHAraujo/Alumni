@@ -37,13 +37,13 @@
                             @csrf
 
                             @if (session('error'))
-                                <div class="alert alert-primary" role="alert">
+                                <div class="alert alert-primary" id="messageErrorLogin" role="alert">
                                     {{ session('error') }}
                                 </div>
                             @endif
 
                             <div class="form-group">
-                                <label for="username">Usuário</label>
+                                <label for="username">Email</label>
                                 <input type="text" class="form-control" name="username" id="username" placeholder="Seu-email@dominio.com...">
                             </div>
 
@@ -94,6 +94,9 @@
 
         <!-- App js -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
+
+        <!-- My Script -->
+        <script src="{{ asset('js/globalScripts/clearMessage.js') }}"></script>
 
     </body>
 
