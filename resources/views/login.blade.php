@@ -27,7 +27,7 @@
                 <div class="card-body">
 
                     <h3 class="text-center m-0">
-                        <a href="index.html" class="logo logo-admin"><img src="{{ asset('assets/images/Antebellum-logo.png') }}" height="80" alt="logo"></a>
+                        <a href="index.html" class="logo logo-admin"><img src="{{ asset('assets/images/Antebellum-logo.png') }}" height="90" alt="logo"></a>
                     </h3>
 
                     <div class="p-3">
@@ -81,7 +81,7 @@
         </div>
 
         <!-- END wrapper -->
-            
+
 
         <!-- jQuery  -->
         <script src="{{ asset('assets/js/jquery.min.js') }}"></script>

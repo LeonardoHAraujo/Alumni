@@ -30,10 +30,10 @@
                 <div class="topbar-left">
                     <a href="{{ route('admin') }}" class="logo">
                         <span>
-                            <img src="assets/images/logo.png" alt="" width="172" height="40">   
+                            <img src="assets/images/logo.png" alt="" width="140" height="40">
                         </span>
                         <i>
-                            <img src="assets/images/logo-sm.png" alt="" width="32" height="30">
+                            <img src="assets/images/logo-sm.png" alt="" width="40" height="40">
                         </i>
                     </a>
                 </div>
@@ -43,11 +43,11 @@
                     <ul class="navbar-right d-flex list-inline float-right mb-0">
                         <!--<li class="dropdown notification-list d-none d-sm-block">
                             <form role="search" class="app-search">
-                                <div class="form-group mb-0"> 
+                                <div class="form-group mb-0">
                                     <input type="text" class="form-control" placeholder="Search..">
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </div>
-                            </form> 
+                            </form>
                         </li>-->
 
                         {{--<li class="dropdown notification-list">
@@ -91,7 +91,7 @@
                                 <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
                                     View all <i class="fi-arrow-right"></i>
                                 </a>
-                            </div>        
+                            </div>
                         </li>--}}
                         <li class="dropdown notification-list">
                             <div class="dropdown notification-list nav-pro-img">
@@ -107,7 +107,7 @@
                                     <!--<a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5"></i> Lock screen</a>-->
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="mdi mdi-power text-danger"></i> Sair</a>
-                                </div>                                                                    
+                                </div>
                             </div>
                         </li>
 
@@ -118,13 +118,13 @@
                             <button class="button-menu-mobile open-left waves-effect waves-light">
                                 <i class="mdi mdi-menu"></i>
                             </button>
-                        </li>                        
+                        </li>
                         <!--<li class="d-none d-sm-block">
                             <div class="dropdown pt-3 d-inline-block">
                                 <a class="btn btn-header waves-effect waves-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Create New
                                 </a>
-                                
+
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="#">Action</a>
                                     <a class="dropdown-item" href="#">Another action</a>
@@ -326,7 +326,7 @@
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
                                         <li class="breadcrumb-item active">Blank page</li>
                                     </ol>
-            
+
                                     <div class="state-information d-none d-sm-block">
                                         <div class="state-graph">
                                             <div id="header-chart-1"></div>
@@ -376,7 +376,7 @@
 
         </div>
         <!-- END wrapper -->
-            
+
 
         <!-- jQuery  -->
         <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
