@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\LeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ Route::middleware(['auth'])->group(function() {
     # PAGE PROFILE
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('/updateProfile', [ProfileController::class, 'update'])->name('updateProfile');
+
+    # PAGE LEADS
+    Route::get('/leads', [LeadController::class, 'index'])->name('leads');
+    
 
     # SECTION MAIN SETTINGS
     Route::get('/users', [SettingsController::class, 'users'])->name('users');
