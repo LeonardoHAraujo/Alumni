@@ -22,16 +22,20 @@ class AuthController extends Controller
         $user = User::where('email', $req->username)->first();
 
         if($user) {
-            if(Hash::check($req->pass, $user->password)) {
-                Auth::attempt(['email' => $req->username, 'password' => $req->pass]);
-    
-                if($user->isAdmin === 1) {
-                    return redirect()->route('admin');
+            if($user->isActive === 1) {
+                if(Hash::check($req->pass, $user->password)) {
+                    Auth::attempt(['email' => $req->username, 'password' => $req->pass]);
+        
+                    if($user->isAdmin === 1) {
+                        return redirect()->route('admin');
+                    } else {
+                        return redirect()->route('students');
+                    }
                 } else {
-                    return redirect()->route('students');
+                    return redirect()->route('login')->with('error', 'Email ou senha incorretos.');
                 }
             } else {
-                return redirect()->route('login')->with('error', 'Email ou senha incorretos.');
+                return redirect()->route('login')->with('error', 'Usuário inexistente.');
             }
         } else {
             return redirect()->route('login')->with('error', 'Email ou senha incorretos.');
