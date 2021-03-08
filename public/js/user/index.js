@@ -34,7 +34,7 @@ $(document).ready(e => {
         $('#modal').modal('show')
     }
 
-    // DELETE CLIENT
+    // DELETE USER
     $table.on('click', '[btn-delete]', $.proxy(onBtnDeleteClick))
 
     function onBtnDeleteClick(e) {
@@ -42,7 +42,7 @@ $(document).ready(e => {
 
         swal({
             title: "Tem certeza?",
-            text: "Uma vez deletado, não poderá recuperar o usuário!",
+            text: "Uma vez deletado, o usuário não poderá acessar o sistema!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

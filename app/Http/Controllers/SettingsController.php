@@ -109,4 +109,21 @@ class SettingsController extends Controller
         $user->isActive = 0;
         $user->save();
     }
+
+    public function deletedUsers()
+    {
+        $users = User::select('id', 'name', 'lastName', 'email', 'isActive', 'isAdmin')->get();
+        return view('admin.settings.deletedUsers', ['title' => 'Usuários deletados', 'users' => $users]);
+    }
+
+    public function updateReactivateUser(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+        ]);
+
+        $user = User::find($request->id);
+        $user->isActive = 1;
+        $user->save();
+    }
 }

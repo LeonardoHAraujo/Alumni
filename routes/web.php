@@ -37,11 +37,15 @@ Route::middleware(['auth'])->group(function() {
 
     # SECTION MAIN SETTINGS
     Route::get('/users', [SettingsController::class, 'users'])->name('users');
+    Route::get('/deletedUsers', [SettingsController::class, 'deletedUsers'])->name('deletedUsers');
 
     # ROUTE OF THE CRUD USERS
     Route::post('/createUsers', [SettingsController::class, 'create']);
     Route::post('/updateUsers', [SettingsController::class, 'update']);
     Route::post('/deleteUsers', [SettingsController::class, 'delete']);
+
+    # ROUTE OF THE UPDATE DELETED USERS
+    Route::post('/reactivateUsers', [SettingsController::class, 'updateReactivateUser']);
 
     # ROUTE LOGOUT
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

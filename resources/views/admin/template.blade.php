@@ -166,6 +166,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-settings m-r-5"></i><span> Configurações <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
                                 <ul class="submenu">
                                     <li><a href="{{ route('users') }}">Usuários</a></li>
+                                    <li><a href="{{ route('deletedUsers') }}">Usuários Deletados</a></li>
                                 </ul>
                             </li>
 
