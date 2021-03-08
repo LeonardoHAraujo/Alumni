@@ -5,10 +5,28 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Antebellum</title>
+        <title>Login - Antebellum</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="Themesbrand" name="author" />
-        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+
+        <!-- ICONS --> 
+        <link rel="apple-touch-icon" sizes="57x57" href="assets/newIcons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="assets/newIcons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/newIcons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/newIcons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/newIcons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/newIcons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/newIcons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/newIcons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/newIcons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="assets/newIcons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/newIcons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="assets/newIcons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/newIcons/favicon-16x16.png">
+        <link rel="manifest" href="assets/newIcons/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="assets/newIcons/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
 
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/metismenu.min.css') }}" rel="stylesheet" type="text/css">
