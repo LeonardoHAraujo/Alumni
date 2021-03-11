@@ -110,6 +110,7 @@ p {
   width: 90%;
 }
 
+/*
 .scroll {
   overflow-x: scroll !important;
 }
@@ -117,6 +118,7 @@ p {
 .width {
   width: 100.8%;
 }
+*/
 
 .hide {
   display: none;
