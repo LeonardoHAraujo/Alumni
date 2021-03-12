@@ -34,63 +34,65 @@
 
     <tbody>
         @foreach($leads as $lead)
-            <tr>
-                <td>{{ $lead->name }}</td>
-                <td>{{ $lead->lastName }}</td>
-                <td>{{ $lead->company }}</td>
-                <td>{{ $lead->city }}</td>
-                <td>{{ $lead->state }}</td>
-                <td>{{ $lead->country }}</td>
-                <td>
-                    <button 
-                        class="btn btn-success"
-                        btn-view 
-                        data-id="{{ $lead->id }}"
-                        data-name="{{ $lead->name }}"
-                        data-lastName="{{ $lead->lastName }}"
-                        data-company="{{ $lead->company }}"
-                        data-linkedin="{{ $lead->linkedin }}"
-                        data-formation="{{ $lead->formation }}"
-                        data-contactPoint="{{ $lead->contactPoint }}"
-                        data-dateFirstContact="{{ $lead->dateFirstContact }}"
-                        data-cell="{{ $lead->cell }}"
-                        data-telephone="{{ $lead->telephone }}"
-                        data-email="{{ $lead->email }}"
-                        data-emailSecondary="{{ $lead->emailSecondary }}"
-                        data-city="{{ $lead->city }}"
-                        data-state="{{ $lead->state }}"
-                        data-country="{{ $lead->country }}"
-                    >
-                        <i class="fas fa-eye"></i>
-                    </button>
+            @if($lead->isActive === 1)
+                <tr>
+                    <td>{{ $lead->name }}</td>
+                    <td>{{ $lead->lastName }}</td>
+                    <td>{{ $lead->company }}</td>
+                    <td>{{ $lead->city }}</td>
+                    <td>{{ $lead->state }}</td>
+                    <td>{{ $lead->country }}</td>
+                    <td>
+                        <button 
+                            class="btn btn-success"
+                            btn-view 
+                            data-id="{{ $lead->id }}"
+                            data-name="{{ $lead->name }}"
+                            data-lastName="{{ $lead->lastName }}"
+                            data-company="{{ $lead->company }}"
+                            data-linkedin="{{ $lead->linkedin }}"
+                            data-formation="{{ $lead->formation }}"
+                            data-contactPoint="{{ $lead->contactPoint }}"
+                            data-dateFirstContact="{{ $lead->dateFirstContact }}"
+                            data-cell="{{ $lead->cell }}"
+                            data-telephone="{{ $lead->telephone }}"
+                            data-email="{{ $lead->email }}"
+                            data-emailSecondary="{{ $lead->emailSecondary }}"
+                            data-city="{{ $lead->city }}"
+                            data-state="{{ $lead->state }}"
+                            data-country="{{ $lead->country }}"
+                        >
+                            <i class="fas fa-eye"></i>
+                        </button>
 
-                    <button 
-                        class="btn btn-warning" 
-                        btn-edit 
-                        data-id="{{ $lead->id }}"
-                        data-name="{{ $lead->name }}"
-                        data-lastName="{{ $lead->lastName }}"
-                        data-company="{{ $lead->company }}"
-                        data-linkedin="{{ $lead->linkedin }}"
-                        data-formation="{{ $lead->formation }}"
-                        data-contactPoint="{{ $lead->contactPoint }}"
-                        data-dateFirstContact="{{ $lead->dateFirstContact }}"
-                        data-cell="{{ $lead->cell }}"
-                        data-telephone="{{ $lead->telephone }}"
-                        data-email="{{ $lead->email }}"
-                        data-emailSecondary="{{ $lead->emailSecondary }}"
-                        data-city="{{ $lead->city }}"
-                        data-state="{{ $lead->state }}"
-                        data-country="{{ $lead->country }}"
-                    >
-                        <i class="fas fa-pencil-alt"></i>
-                    </button>
+                        <button 
+                            class="btn btn-warning" 
+                            btn-edit 
+                            data-id="{{ $lead->id }}"
+                            data-name="{{ $lead->name }}"
+                            data-lastName="{{ $lead->lastName }}"
+                            data-company="{{ $lead->company }}"
+                            data-linkedin="{{ $lead->linkedin }}"
+                            data-formation="{{ $lead->formation }}"
+                            data-contactPoint="{{ $lead->contactPoint }}"
+                            data-dateFirstContact="{{ $lead->dateFirstContact }}"
+                            data-cell="{{ $lead->cell }}"
+                            data-telephone="{{ $lead->telephone }}"
+                            data-email="{{ $lead->email }}"
+                            data-emailSecondary="{{ $lead->emailSecondary }}"
+                            data-city="{{ $lead->city }}"
+                            data-state="{{ $lead->state }}"
+                            data-country="{{ $lead->country }}"
+                        >
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
 
-                    <button type="submit" class="btn btn-primary" btn-delete data-id="{{ $lead->id }}">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
+                        <button type="submit" class="btn btn-primary" btn-delete data-id="{{ $lead->id }}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            @endif
         @endforeach
     </tbody>
 </table>
@@ -146,7 +148,7 @@
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="name">Data do primeiro contato</label>
-                        <input type="date" id="dataFirstContact" class="form-control" placeholder="Data...">
+                        <input type="date" id="dateFirstContact" class="form-control" placeholder="Data...">
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="name">Celular</label>
@@ -185,6 +187,97 @@
                 </div>
             </div>
         </form>
+    </div>
+</div>
+
+<!-- MODAL VIEW DATA -->
+<div id="modal-view" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content custom-modal">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="myLargeModalLabel">Visualização do(a) Lead <b><span id="nameLead"> <!-- Dynamic name here --> </span></b> </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="divs-view">
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Nome</label>
+                        <input type="text" id="nameView" class="form-control" data-disabled>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Sobrenome</label>
+                        <input type="text" id="lastNameView" class="form-control" data-disabled>
+                    </div>
+                </div>
+                
+                <div class="divs-view">
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Empresa</label>
+                        <input type="text" id="companyView" class="form-control" data-disabled>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">LinkedIn</label>
+                        <input type="text" id="linkedinView" class="form-control" data-disabled>
+                    </div>
+                </div>
+                
+                <div class="divs-view">
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Formação</label>
+                        <input type="text" id="formationView" class="form-control" data-disabled>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Ponto de contato</label>
+                        <input type="text" id="contactPointView" class="form-control" data-disabled>
+                    </div>
+                </div>
+                
+                <div class="divs-view">
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Data do primeiro contato</label>
+                        <input type="text" id="dateFirstContactView" class="form-control" data-disabled>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Celular</label>
+                        <input type="text" id="cellView" class="form-control" data-disabled>
+                    </div>
+                </div>
+
+                <div class="divs-view">
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Telefone</label>
+                        <input type="text" id="telephoneView" class="form-control" data-disabled>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">E-mail</label>
+                        <input type="text" id="emailView" class="form-control" data-disabled>
+                    </div>
+                </div>
+
+                
+                <div class="divs-view">
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">E-mail Secundário</label>
+                        <input type="text" id="emailSecondaryView" class="form-control" data-disabled>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Cidade</label>
+                        <input type="text" id="cityView" class="form-control" data-disabled>
+                    </div>
+                </div>
+
+                <div class="divs-view">
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Estado</label>
+                        <input type="text" id="stateView" class="form-control" data-disabled>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">País</label>
+                        <input type="text" id="countryView" class="form-control" data-disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

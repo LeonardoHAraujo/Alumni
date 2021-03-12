@@ -5,14 +5,14 @@ $(document).ready(e => {
 
     // SHOW MODAL CREATE
     $('#create').click(e => {
-        $('#id-title-modal').text('Novo Lead')
+        $('#id-title-modal').text('Criar Lead')
         $('#name').val('')
         $('#lastName').val('')
         $('#company').val('')
         $('#linkedin').val('')
         $('#formation').val('')
         $('#contactPoint').val('')
-        $('#dataFirstContact').val('')
+        $('#dateFirstContact').val('')
         $('#cell').val('')
         $('#telephone').val('')
         $('#email').val('')
@@ -29,7 +29,7 @@ $(document).ready(e => {
     $table.on('click', '[btn-edit]', $.proxy(onBtnEditClick))
 
     function onBtnEditClick(e) {
-        $('#id-title-modal').text('Editar Usuário')
+        $('#id-title-modal').text('Editar Lead')
         $('#id').val($(e.currentTarget).attr("data-id"))
 
         let name = $(e.currentTarget).attr("data-name")
@@ -53,7 +53,7 @@ $(document).ready(e => {
         $('#linkedin').val(linkedin)
         $('#formation').val(formation)
         $('#contactPoint').val(contactPoint)
-        $('#dataFirstContact').val(dateFirstContact)
+        $('#dateFirstContact').val(dateFirstContact)
         $('#cell').val(cell)
         $('#telephone').val(telephone)
         $('#email').val(email)
@@ -65,11 +65,46 @@ $(document).ready(e => {
         $('#modal').modal('show')
     }
 
+    // DISABLED INPUTS VIEW
+    $('[data-disabled]').prop("disabled", true)
+
     // SHOW MODAL VIEW
     $table.on('click', '[btn-view]', $.proxy(onBtnViewClick))
 
     function onBtnViewClick(e) {
-        console.log('viu...')
+        let name = $(e.currentTarget).attr("data-name")
+        let lastName = $(e.currentTarget).attr("data-lastName")
+        let company = $(e.currentTarget).attr("data-company")
+        let linkedin = $(e.currentTarget).attr("data-linkedin")
+        let formation = $(e.currentTarget).attr("data-formation")
+        let contactPoint = $(e.currentTarget).attr("data-contactPoint")
+        let dateFirstContact = $(e.currentTarget).attr("data-dateFirstContact")
+        let cell = $(e.currentTarget).attr("data-cell")
+        let telephone = $(e.currentTarget).attr("data-telephone")
+        let email = $(e.currentTarget).attr("data-email")
+        let emailSecondary = $(e.currentTarget).attr("data-emailSecondary")
+        let city = $(e.currentTarget).attr("data-city")
+        let state = $(e.currentTarget).attr("data-state")
+        let country = $(e.currentTarget).attr("data-country")
+
+        $('#nameLead').text(name)
+
+        $('#nameView').val(name)
+        $('#lastNameView').val(lastName)
+        $('#companyView').val(company)
+        $('#linkedinView').val(linkedin)
+        $('#formationView').val(formation)
+        $('#contactPointView').val(contactPoint)
+        $('#dateFirstContactView').val(dateFirstContact)
+        $('#cellView').val(cell)
+        $('#telephoneView').val(telephone)
+        $('#emailView').val(email)
+        $('#emailSecondaryView').val(emailSecondary)
+        $('#cityView').val(city)
+        $('#stateView').val(state)
+        $('#countryView').val(country)
+
+        $('#modal-view').modal('show')
     }
 
     // DELETE USER
@@ -88,9 +123,9 @@ $(document).ready(e => {
           .then((willDelete) => {
             if (willDelete) { 
                 console.log('deletou...')   
-              /*$.ajax({
+              $.ajax({
                     type: 'POST',
-                    url: "",
+                    url: "/deleteLeads",
                     data: {
                         _token : csrf,
                         id : btnDelete.attr("data-id")
@@ -101,7 +136,7 @@ $(document).ready(e => {
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         console.log(textStatus)
                     }
-                })*/
+                })
             } else {
               swal("Você escolheu cancelar a exclusão!");
             }
@@ -119,7 +154,7 @@ $(document).ready(e => {
         const linkedin          = $('#linkedin')
         const formation         = $('#formation')
         const contactPoint      = $('#contactPoint')
-        const dataFirstContact  = $('#dataFirstContact')
+        const dateFirstContact  = $('#dateFirstContact')
         const cell              = $('#cell')
         const telephone         = $('#telephone')
 		const email             = $('#email')
@@ -148,7 +183,7 @@ $(document).ready(e => {
 			linkedin.val('')
 			formation.val('')
 			contactPoint.val('')
-			dataFirstContact.val('')
+			dateFirstContact.val('')
 			cell.val('')
 			telephone.val('')
 			email.val('')
@@ -165,7 +200,7 @@ $(document).ready(e => {
 			linkedin.val() === '' ||
 			formation.val() === '' ||
 			contactPoint.val() === '' ||
-			dataFirstContact.val() === '' ||
+			dateFirstContact.val() === '' ||
 			cell.val() === '' ||
 			telephone.val() === '' ||
             email.val() === '' ||
@@ -184,17 +219,26 @@ $(document).ready(e => {
 		} else {
 
             if(id.val() === '') {
-                console.log('criou...')
-                /*$.ajax({
+
+                $.ajax({
                     type: 'POST',
-                    url: "/createUsers",
+                    url: "/createLeads",
                     data: {
                         _token : csrf,
                         name : name.val(),
+                        lastName : lastName.val(),
+                        company : company.val(),
+                        linkedin : linkedin.val(),
+                        formation : formation.val(),
+                        contactPoint : contactPoint.val(),
+                        dateFirstContact : dateFirstContact.val(),
+                        cell : cell.val(),
+                        telephone : telephone.val(),
                         email : email.val(),
-                        func : func.val(),
-                        pass : pass.val(),
-                        confirmPass : confirmPass.val()
+                        emailSecondary : emailSecondary.val(),
+                        city : city.val(),
+                        state : state.val(),
+                        country : country.val()
                     },
                     success: function (data) {
                         if(data.status === 200) {
@@ -223,20 +267,29 @@ $(document).ready(e => {
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         console.log(textStatus)
                     }
-                })*/
+                })
             } else {
                 console.log('editou...')
-                /*$.ajax({
+                $.ajax({
                     type: 'POST',
-                    url: "/updateUsers",
+                    url: "/updateLeads",
                     data: {
                         _token : csrf,
                         id : id.val(),
                         name : name.val(),
+                        lastName : lastName.val(),
+                        company : company.val(),
+                        linkedin : linkedin.val(),
+                        formation : formation.val(),
+                        contactPoint : contactPoint.val(),
+                        dateFirstContact : dateFirstContact.val(),
+                        cell : cell.val(),
+                        telephone : telephone.val(),
                         email : email.val(),
-                        func : func.val(),
-                        pass : pass.val(),
-                        confirmPass : confirmPass.val()
+                        emailSecondary : emailSecondary.val(),
+                        city : city.val(),
+                        state : state.val(),
+                        country : country.val()
                     },
                     success: function (data) {
                         if(data.status === 200) {
@@ -264,7 +317,7 @@ $(document).ready(e => {
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
                         console.log(textStatus)
                     }
-                })*/
+                })
             }
         }
     })

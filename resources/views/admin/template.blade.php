@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Admin - Antebellum</title>
+        <title>@yield('title') - Antebellum</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="Themesbrand" name="author" />
 
@@ -338,7 +338,11 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title">@yield('title')</h4>
+                                    <h4 class="page-title" style="font-size: 25px">@yield('title')</h4>
+
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active">@yield('welcome')</li>
+                                    </ol>
 
                                     <!--<ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="javascript:void(0);">Agroxa</a></li>

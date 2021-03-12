@@ -33,6 +33,11 @@ Route::middleware(['auth'])->group(function() {
 
     # PAGE LEADS
     Route::get('/leads', [LeadController::class, 'index'])->name('leads');
+
+    # ROUTE OF THE CRUD LEADS
+    Route::post('/createLeads', [LeadController::class, 'create']);
+    Route::post('/updateLeads', [LeadController::class, 'update']);
+    Route::post('/deleteLeads', [LeadController::class, 'delete']);
     
 
     # SECTION MAIN SETTINGS

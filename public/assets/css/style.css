@@ -110,6 +110,33 @@ p {
   width: 90%;
 }
 
+.custom-modal {
+  width: 120%;
+  margin-left: -5%;
+}
+
+.divs-view {
+  display: flex;
+}
+
+.width-input-view {
+  width: 50%;
+}
+
+[data-disabled]:hover {
+  cursor: not-allowed;
+}
+
+.center-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 1%;
+}
+
+.width-card {
+  width: 110%;
+}
+
 /*
 .scroll {
   overflow-x: scroll !important;
