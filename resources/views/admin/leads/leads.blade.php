@@ -24,10 +24,8 @@
         <tr>
             <th>Nome</th>
             <th>Sobrenome</th>
-            <th>Empresa</th>
-            <th>Cidade</th>
-            <th>Estado</th>
-            <th>País</th>
+            <th>Email</th>
+            <th>Celular</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -38,10 +36,8 @@
                 <tr>
                     <td>{{ $lead->name }}</td>
                     <td>{{ $lead->lastName }}</td>
-                    <td>{{ $lead->company }}</td>
-                    <td>{{ $lead->city }}</td>
-                    <td>{{ $lead->state }}</td>
-                    <td>{{ $lead->country }}</td>
+                    <td>{{ $lead->email }}</td>
+                    <td>{{ $lead->cell }}</td>
                     <td>
                         <button 
                             class="btn btn-success"
@@ -102,7 +98,7 @@
     <div class="modal-dialog">
         <!-- Modal content-->
         <form action="" method="post">
-            <div class="modal-content">
+            <div class="modal-content custom-modal">
 
                 @csrf
 
@@ -122,41 +118,49 @@
                 
                 <!-- Modal Body  -->
                 <div class="modal-body">
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">Nome</label>
-                        <input type="text" id="name" class="form-control" placeholder="Nome...">
+                    <div class="divs-view">
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" class="form-control" placeholder="Nome...">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Sobrenome</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="Sobrenome...">
+                        </div>
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">Sobrenome</label>
-                        <input type="text" id="lastName" class="form-control" placeholder="Sobrenome...">
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">Empresa</label>
-                        <input type="text" id="company" class="form-control" placeholder="Empresa...">
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">LinkedIn</label>
-                        <input type="text" id="linkedin" class="form-control" placeholder="LinkedIn...">
+                    <div class="divs-view">
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Empresa</label>
+                            <input type="text" id="company" class="form-control" placeholder="Empresa...">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">LinkedIn</label>
+                            <input type="text" id="linkedin" class="form-control" placeholder="LinkedIn...">
+                        </div>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="name">Formação</label>
                         <input type="text" id="formation" class="form-control" placeholder="Formação...">
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">Ponto de contato</label>
-                        <input type="text" id="contactPoint" class="form-control" placeholder="Ponto de contato...">
+                    <div class="divs-view">
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Ponto de contato</label>
+                            <input type="text" id="contactPoint" class="form-control" placeholder="Ponto de contato...">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Data do primeiro contato</label>
+                            <input type="date" id="dateFirstContact" class="form-control" placeholder="Data...">
+                        </div>
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">Data do primeiro contato</label>
-                        <input type="date" id="dateFirstContact" class="form-control" placeholder="Data...">
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">Celular</label>
-                        <input type="text" id="cell" class="form-control" placeholder="Celular...">
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">Telefone</label>
-                        <input type="text" id="telephone" class="form-control" placeholder="Telefone...">
+                    <div class="divs-view">
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Celular</label>
+                            <input type="text" id="cell" class="form-control" placeholder="Celular...">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Telefone</label>
+                            <input type="text" id="telephone" class="form-control" placeholder="Telefone...">
+                        </div>
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="name">E-mail</label>
@@ -166,17 +170,19 @@
                         <label for="name">E-mail Secundário</label>
                         <input type="email" id="emailSecondary" class="form-control" placeholder="E-mail Secundário...">
                     </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">Cidade</label>
-                        <input type="text" id="city" class="form-control" placeholder="Cidade...">
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">Estado</label>
-                        <input type="text" id="state" class="form-control" placeholder="Estado...">
-                    </div>
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="name">País</label>
-                        <input type="text" id="country" class="form-control" placeholder="País...">
+                    <div class="divs-view">
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Cidade</label>
+                            <input type="text" id="city" class="form-control" placeholder="Cidade...">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Estado</label>
+                            <input type="text" id="state" class="form-control" placeholder="Estado...">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">País</label>
+                            <input type="text" id="country" class="form-control" placeholder="País...">
+                        </div>
                     </div>
                 </div>
 
