@@ -12,8 +12,6 @@ class ClassName extends Model
     protected $fillable = [
         'code',
         'data',
-        'course',
-        'course2',
         'class',
         'local'
     ];

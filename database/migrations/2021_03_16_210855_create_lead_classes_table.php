@@ -14,20 +14,20 @@ class CreateLeadClassesTable extends Migration
     public function up()
     {
         Schema::create('lead_classes', function (Blueprint $table) {
-          $table->id();
-          $table->integer('classId');
-          $table->string('certificate')->nullable();
-          $table->string('paid')->nullable();
-          $table->string('confirmed')->nullable();
-          $table->string('class')->nullable();
-
-          $table->foreign('classId')
-            ->references('id')
-            ->on ('class_names')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-
-          $table->timestamps();
+            $table->id();
+            $table->bigInteger('classId')->unsigned();
+            $table->string('certificate')->nullable();
+            $table->string('paid')->nullable();
+            $table->string('confirmed')->nullable();
+            $table->string('class')->nullable();
+  
+            $table->foreign('classId')
+              ->references('id')
+              ->on ('class_names')
+              ->onDelete('cascade')
+              ->onUpdate('cascade');
+  
+            $table->timestamps();
         });
     }
 
