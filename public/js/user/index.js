@@ -96,7 +96,6 @@ $(document).ready(e => {
         function clearInputs() {
 			name.val('')
 			email.val('')
-            func.prop("checked", false)
 			pass.val('')
 			confirmPass.val('')
 		}
@@ -144,6 +143,7 @@ $(document).ready(e => {
                         alert.addClass('show')
 
                         clearInputs()
+                        func.prop("checked", false)
                         clearAlert(alert)
                         setTimeout(() => {
                             location.reload()

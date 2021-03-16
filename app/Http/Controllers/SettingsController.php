@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Keygen\Keygen;
 
 class SettingsController extends Controller
 {
@@ -30,12 +31,15 @@ class SettingsController extends Controller
         $isAdmin = isset($request->func) ? 1 : 0;
 
         try {
+
+            $salt = Keygen::bytes(50)->hex()->generate();
             
             $user = new User();
             $user->name = $request->name;
             $user->email = $request->email;
             $user->isAdmin = $isAdmin;
-            $user->password = Hash::make($request->pass);
+            $user->password = Hash::make($request->pass.$salt);
+            $user->salt = $salt;
             $user->save();
 
             $response = [
@@ -45,7 +49,7 @@ class SettingsController extends Controller
 
             return $response;
 
-        } catch (\Throwable $th) {
+        } catch (Exception $e) {
 
             $response = [
                 'status' => 400,
@@ -73,12 +77,15 @@ class SettingsController extends Controller
         $isAdmin = isset($request->func) ? 1 : 0;
 
         try {
+
+            $salt = Keygen::bytes(50)->hex()->generate();
             
             $user = User::find($request->id);
             $user->name = $request->name;
             $user->email = $request->email;
             $user->isAdmin = $isAdmin;
-            $user->password = Hash::make($request->pass);
+            $user->password = Hash::make($request->pass.$salt);
+            $user->salt = $salt;
             $user->save();
 
             $response = [
@@ -88,7 +95,7 @@ class SettingsController extends Controller
 
             return $response;
 
-        } catch (\Throwable $th) {
+        } catch (Exception $e) {
 
             $response = [
                 'status' => 400,

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Keygen\Keygen;
 
 class ProfileController extends Controller
 {
@@ -33,13 +35,16 @@ class ProfileController extends Controller
         
         $user = User::find($request->id);
 
-        if(Hash::check($request->currentPass, $user->password)) {
+        if(Hash::check($request->currentPass.$user->salt, $user->password)) {
             try {
+
+                $salt = Keygen::bytes(50)->hex()->generate();
 
                 $user->name = $request->name;
                 $user->lastName = $request->lastName;
                 $user->email = $request->email;
-                $user->password = Hash::make($request->confirmPass);
+                $user->password = Hash::make($request->confirmPass.$salt);
+                $user->salt = $salt;
                 $user->save();
 
                 return redirect()->back()->with('messageSuccess', 'Perfil atualizado com sucesso.');

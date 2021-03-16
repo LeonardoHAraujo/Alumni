@@ -23,8 +23,10 @@ class AuthController extends Controller
 
         if($user) {
             if($user->isActive === 1) {
-                if(Hash::check($req->pass, $user->password)) {
-                    Auth::attempt(['email' => $req->username, 'password' => $req->pass]);
+                $pass = $req->pass.$user->salt;
+                
+                if(Hash::check($pass, $user->password)) {
+                    Auth::attempt(['email' => $req->username, 'password' => $pass]);
         
                     if($user->isAdmin === 1) {
                         return redirect()->route('admin');
