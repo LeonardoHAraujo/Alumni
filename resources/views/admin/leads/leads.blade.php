@@ -54,6 +54,8 @@
                             data-telephone="{{ $lead->telephone }}"
                             data-email="{{ $lead->email }}"
                             data-emailSecondary="{{ $lead->emailSecondary }}"
+                            data-street="{{ $lead->street }}"
+                            data-number="{{ $lead->number }}"
                             data-city="{{ $lead->city }}"
                             data-state="{{ $lead->state }}"
                             data-country="{{ $lead->country }}"
@@ -76,6 +78,8 @@
                             data-telephone="{{ $lead->telephone }}"
                             data-email="{{ $lead->email }}"
                             data-emailSecondary="{{ $lead->emailSecondary }}"
+                            data-street="{{ $lead->street }}"
+                            data-number="{{ $lead->number }}"
                             data-city="{{ $lead->city }}"
                             data-state="{{ $lead->state }}"
                             data-country="{{ $lead->country }}"
@@ -170,17 +174,28 @@
                         <label for="name">E-mail Secundário</label>
                         <input type="email" id="emailSecondary" class="form-control" placeholder="E-mail Secundário...">
                     </div>
+
+                    <div class="divs-view bottom-locale">
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">Localidade</label>
+                            <input type="text" id="street" class="form-control" placeholder="Rua...">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2 width-input-view">
+                            <label for="name">&nbsp</label>
+                            <input type="text" id="number" class="form-control" placeholder="Número...">
+                        </div>
+                    </div>
                     <div class="divs-view">
                         <div class="form-group mx-sm-3 mb-2 width-input-view">
-                            <label for="name">Cidade</label>
+                            <label for="name">&nbsp</label>
                             <input type="text" id="city" class="form-control" placeholder="Cidade...">
                         </div>
                         <div class="form-group mx-sm-3 mb-2 width-input-view">
-                            <label for="name">Estado</label>
+                            <label for="name">&nbsp</label>
                             <input type="text" id="state" class="form-control" placeholder="Estado...">
                         </div>
                         <div class="form-group mx-sm-3 mb-2 width-input-view">
-                            <label for="name">País</label>
+                            <label for="name">&nbsp</label>
                             <input type="text" id="country" class="form-control" placeholder="País...">
                         </div>
                     </div>
@@ -267,11 +282,21 @@
                         <input type="text" id="emailSecondaryView" class="form-control" data-disabled>
                     </div>
                     <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Rua</label>
+                        <input type="text" id="streetView" class="form-control" data-disabled>
+                    </div>
+                </div>
+
+                <div class="divs-view">
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
+                        <label for="name">Número</label>
+                        <input type="text" id="numberView" class="form-control" data-disabled>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2 width-input-view">
                         <label for="name">Cidade</label>
                         <input type="text" id="cityView" class="form-control" data-disabled>
                     </div>
                 </div>
-
                 <div class="divs-view">
                     <div class="form-group mx-sm-3 mb-2 width-input-view">
                         <label for="name">Estado</label>

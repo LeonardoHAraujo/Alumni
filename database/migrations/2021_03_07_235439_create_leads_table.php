@@ -22,17 +22,14 @@ class CreateLeadsTable extends Migration
             $table->string('linkedin')->unique()->nullable();
             $table->string('formation')->nullable();
 
-            $table->string('contactPoint');
-            $table->date('dateFirstContact');
+            $table->string('contactPoint')->nullable();
+            $table->date('dateFirstContact')->nullable();
 
             $table->string('cell')->unique();
             $table->string('telephone')->nullable();
             $table->string('email')->unique();
             $table->string('emailSecondary')->nullable();
 
-            $table->string('city');
-            $table->string('state');
-            $table->string('country');
             $table->timestamps();
         });
     }

@@ -49,6 +49,7 @@
                             btn-edit 
                             data-id="{{ $user->id }}"
                             data-name="{{ $user->name }}"
+                            data-lastName="{{ $user->lastName }}"
                             data-email="{{ $user->email }}"
                             data-func="{{ $user->isAdmin }}"
                         >
@@ -93,6 +94,10 @@
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="name">Nome</label>
                         <input type="text" id="name" class="form-control" placeholder="Nome...">
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="name">Sobrenome</label>
+                        <input type="text" id="lastName" class="form-control" placeholder="Sobrenome...">
                     </div>
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="office">Email</label>

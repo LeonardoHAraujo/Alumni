@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Leads;
+use App\Models\Locale;
 
 class LeadController extends Controller
 {
     public function index()
     {
-        $leads = Leads::all();
+        $leads = DB::table('leads')
+            ->join('locales', 'leads.id', '=', 'locales.leadId')
+            ->select('leads.*', 'locales.street', 'locales.number', 'locales.city', 'locales.state', 'locales.country')
+            ->get();
+
         return view('admin.leads.leads', ['title' => 'Leads', 'leads' => $leads]);
     }
 
@@ -18,18 +24,8 @@ class LeadController extends Controller
         if (
             !isset($request->name) || $request->name == '' ||
             !isset($request->lastName) || $request->lastName == '' ||
-            !isset($request->company) || $request->company == '' ||
-            !isset($request->linkedin) || $request->linkedin == '' ||
-            !isset($request->formation) || $request->formation == '' ||
-            !isset($request->contactPoint) || $request->contactPoint == '' ||
-            !isset($request->dateFirstContact) || $request->dateFirstContact == '' ||
             !isset($request->cell) || $request->cell == '' ||
-            !isset($request->telephone) || $request->telephone == '' ||
-            !isset($request->email) || $request->email == '' ||
-            !isset($request->emailSecondary) || $request->emailSecondary == '' ||
-            !isset($request->city) || $request->city == '' ||
-            !isset($request->state) || $request->state == '' ||
-            !isset($request->country) || $request->country == ''
+            !isset($request->email) || $request->email == ''
         ) {
             $response = [
                 'status' => 400,
@@ -53,11 +49,17 @@ class LeadController extends Controller
             $lead->telephone = $request->telephone;
             $lead->email = $request->email;
             $lead->emailSecondary = $request->emailSecondary;
-            $lead->city = $request->city;
-            $lead->state = $request->state;
-            $lead->country = $request->country;
             $lead->save();
-            
+
+            DB::table('locales')
+              ->insert([
+                'leadId' => $lead->id,
+                'street' => $request->street,
+                'number' => $request->number,
+                'city' => $request->city,
+                'state' => $request->state,
+                'country' => $request->country
+              ]);
 
             $response = [
                 'status' => 200,
@@ -83,18 +85,8 @@ class LeadController extends Controller
             !isset($request->id) || $request->id == '' ||
             !isset($request->name) || $request->name == '' ||
             !isset($request->lastName) || $request->lastName == '' ||
-            !isset($request->company) || $request->company == '' ||
-            !isset($request->linkedin) || $request->linkedin == '' ||
-            !isset($request->formation) || $request->formation == '' ||
-            !isset($request->contactPoint) || $request->contactPoint == '' ||
-            !isset($request->dateFirstContact) || $request->dateFirstContact == '' ||
             !isset($request->cell) || $request->cell == '' ||
-            !isset($request->telephone) || $request->telephone == '' ||
-            !isset($request->email) || $request->email == '' ||
-            !isset($request->emailSecondary) || $request->emailSecondary == '' ||
-            !isset($request->city) || $request->city == '' ||
-            !isset($request->state) || $request->state == '' ||
-            !isset($request->country) || $request->country == ''
+            !isset($request->email) || $request->email == '' 
         ) {
             $response = [
                 'status' => 400,
@@ -105,7 +97,7 @@ class LeadController extends Controller
         }
 
         try {
-            
+                        
             $lead = Leads::find($request->id);
             $lead->name = $request->name;
             $lead->lastName = $request->lastName;
@@ -118,11 +110,17 @@ class LeadController extends Controller
             $lead->telephone = $request->telephone;
             $lead->email = $request->email;
             $lead->emailSecondary = $request->emailSecondary;
-            $lead->city = $request->city;
-            $lead->state = $request->state;
-            $lead->country = $request->country;
             $lead->save();
-            
+
+            DB::table('locales')
+              ->where('leadId', $request->id)
+              ->update([
+                'street' => $request->street,
+                'number' => $request->number,
+                'city' => $request->city,
+                'state' => $request->state,
+                'country' => $request->country
+              ]);
 
             $response = [
                 'status' => 200,

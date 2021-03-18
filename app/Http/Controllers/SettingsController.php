@@ -19,6 +19,7 @@ class SettingsController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'lastName' => 'required',
             'email' => 'required',
             'pass' => 'required',
             'confirmPass' => 'required',
@@ -36,9 +37,10 @@ class SettingsController extends Controller
             
             $user = new User();
             $user->name = $request->name;
+            $user->lastName = $request->lastName;
             $user->email = $request->email;
             $user->isAdmin = $isAdmin;
-            $user->password = Hash::make($request->pass.$salt);
+            $user->password = Hash::make($request->confirmPass.$salt);
             $user->salt = $salt;
             $user->save();
 
@@ -65,6 +67,7 @@ class SettingsController extends Controller
         $request->validate([
             'id' => 'required',
             'name' => 'required',
+            'lastName' => 'required',
             'email' => 'required',
             'pass' => 'required',
             'confirmPass' => 'required',
@@ -82,9 +85,10 @@ class SettingsController extends Controller
             
             $user = User::find($request->id);
             $user->name = $request->name;
+            $user->lastName = $request->lastName;
             $user->email = $request->email;
             $user->isAdmin = $isAdmin;
-            $user->password = Hash::make($request->pass.$salt);
+            $user->password = Hash::make($request->confirmPass.$salt);
             $user->salt = $salt;
             $user->save();
 

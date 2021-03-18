@@ -17,6 +17,8 @@ $(document).ready(e => {
         $('#telephone').val('')
         $('#email').val('')
         $('#emailSecondary').val('')
+        $('#street').val('')
+        $('#number').val('')
         $('#city').val('')
         $('#state').val('')
         $('#country').val('')
@@ -43,6 +45,8 @@ $(document).ready(e => {
         let telephone = $(e.currentTarget).attr("data-telephone")
         let email = $(e.currentTarget).attr("data-email")
         let emailSecondary = $(e.currentTarget).attr("data-emailSecondary")
+        let street = $(e.currentTarget).attr("data-street")
+        let number = $(e.currentTarget).attr("data-number")
         let city = $(e.currentTarget).attr("data-city")
         let state = $(e.currentTarget).attr("data-state")
         let country = $(e.currentTarget).attr("data-country")
@@ -58,6 +62,8 @@ $(document).ready(e => {
         $('#telephone').val(telephone)
         $('#email').val(email)
         $('#emailSecondary').val(emailSecondary)
+        $('#street').val(street)
+        $('#number').val(number)
         $('#city').val(city)
         $('#state').val(state)
         $('#country').val(country)
@@ -83,6 +89,8 @@ $(document).ready(e => {
         let telephone = $(e.currentTarget).attr("data-telephone")
         let email = $(e.currentTarget).attr("data-email")
         let emailSecondary = $(e.currentTarget).attr("data-emailSecondary")
+        let street = $(e.currentTarget).attr("data-street")
+        let number = $(e.currentTarget).attr("data-number")
         let city = $(e.currentTarget).attr("data-city")
         let state = $(e.currentTarget).attr("data-state")
         let country = $(e.currentTarget).attr("data-country")
@@ -100,6 +108,8 @@ $(document).ready(e => {
         $('#telephoneView').val(telephone)
         $('#emailView').val(email)
         $('#emailSecondaryView').val(emailSecondary)
+        $('#streetView').val(street)
+        $('#numberView').val(number)
         $('#cityView').val(city)
         $('#stateView').val(state)
         $('#countryView').val(country)
@@ -159,6 +169,8 @@ $(document).ready(e => {
         const telephone         = $('#telephone')
 		const email             = $('#email')
 		const emailSecondary    = $('#emailSecondary')
+        const street            = $('#street')
+        const number            = $('#number')
 		const city              = $('#city')
         const state             = $('#state')
         const country           = $('#country')
@@ -188,6 +200,8 @@ $(document).ready(e => {
 			telephone.val('')
 			email.val('')
 			emailSecondary.val('')
+			street.val('')
+			number.val('')
 			city.val('')
 			state.val('')
 			country.val('')
@@ -196,21 +210,11 @@ $(document).ready(e => {
         if (
 			name.val() === '' ||
 			lastName.val() === '' ||
-			company.val() === '' ||
-			linkedin.val() === '' ||
-			formation.val() === '' ||
-			contactPoint.val() === '' ||
-			dateFirstContact.val() === '' ||
 			cell.val() === '' ||
-			telephone.val() === '' ||
-            email.val() === '' ||
-			emailSecondary.val() === '' ||
-			city.val() === '' ||
-			state.val() === '' ||
-			country.val() === ''
+            email.val() === ''
 		) {
 			alert.addClass('alert-primary')
-			alert.text('Preencha todos os dados corretamente.')
+			alert.text('Os campos: Nome, Sobrenome, Celular e E-mail são obrigatórios.')
 			alert.removeClass('hide')
 			alert.addClass('show')
 
@@ -236,6 +240,8 @@ $(document).ready(e => {
                         telephone : telephone.val(),
                         email : email.val(),
                         emailSecondary : emailSecondary.val(),
+                        street : street.val(),
+                        number : number.val(),
                         city : city.val(),
                         state : state.val(),
                         country : country.val()
@@ -269,7 +275,6 @@ $(document).ready(e => {
                     }
                 })
             } else {
-                console.log('editou...')
                 $.ajax({
                     type: 'POST',
                     url: "/updateLeads",
@@ -287,6 +292,8 @@ $(document).ready(e => {
                         telephone : telephone.val(),
                         email : email.val(),
                         emailSecondary : emailSecondary.val(),
+                        street : street.val(),
+                        number : number.val(),
                         city : city.val(),
                         state : state.val(),
                         country : country.val()

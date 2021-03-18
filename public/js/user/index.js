@@ -7,6 +7,7 @@ $(document).ready(e => {
     $('#create').click(e => {
         $('#id-title-modal').text('Novo Usuário')
         $('#name').val('')
+        $('#lastName').val('')
         $('#email').val('')
         $('#func').prop("checked", false)
         $('#pass').val('')
@@ -24,10 +25,12 @@ $(document).ready(e => {
         $('#id').val($(e.currentTarget).attr("data-id"))
 
         let name = $(e.currentTarget).attr("data-name")
+        let lastName = $(e.currentTarget).attr("data-lastName")
         let email = $(e.currentTarget).attr("data-email")
         let func = $(e.currentTarget).attr("data-func")
 
         $('#name').val(name)
+        $('#lastName').val(lastName)
         $('#email').val(email)
         func == 1 ? $('#func').prop("checked", true) : $('#func').prop("checked", false)
 
@@ -75,6 +78,7 @@ $(document).ready(e => {
 
         const id                = $('#id')
         const name              = $('#name')
+        const lastName          = $('#lastName')
 		const email             = $('#email')
 		const func              = $('input:checkbox[name=func]:checked')
 		const pass              = $('#pass')
@@ -95,6 +99,7 @@ $(document).ready(e => {
 
         function clearInputs() {
 			name.val('')
+			lastName.val('')
 			email.val('')
 			pass.val('')
 			confirmPass.val('')
@@ -102,6 +107,7 @@ $(document).ready(e => {
 
         if (
 			name.val() === '' ||
+			lastName.val() === '' ||
 			email.val() === '' ||
 			pass.val() === '' ||
 			confirmPass.val() === ''
@@ -130,6 +136,7 @@ $(document).ready(e => {
                 data: {
                     _token : csrf,
                     name : name.val(),
+                    lastName : lastName.val(),
                     email : email.val(),
                     func : func.val(),
                     pass : pass.val(),
@@ -173,6 +180,7 @@ $(document).ready(e => {
                     _token : csrf,
                     id : id.val(),
                     name : name.val(),
+                    lastName : lastName.val(),
                     email : email.val(),
                     func : func.val(),
                     pass : pass.val(),

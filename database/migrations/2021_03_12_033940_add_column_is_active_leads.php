@@ -14,7 +14,7 @@ class AddColumnIsActiveLeads extends Migration
     public function up()
     {
         Schema::table('leads', function ($table) {
-            $table->integer('isActive')->after('country')->default(1);
+            $table->integer('isActive')->after('emailSecondary')->default(1);
         });
     }
 

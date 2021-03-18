@@ -26,7 +26,11 @@ class HomeController extends Controller
         $countLeads = DB::table('leads')->where('isActive', 1)->count();
 
         $usersLimit5 = DB::table('users')->where('isActive', 1)->limit(5)->get();
-        $leadsLimit5 = DB::table('leads')->limit(5)->get();
+        $leadsLimit5 = DB::table('leads')
+            ->join('locales', 'leads.id', '=', 'locales.leadId')
+            ->select('leads.*', 'locales.street', 'locales.number', 'locales.city', 'locales.state', 'locales.country')
+            ->limit(5)
+            ->get();
 
         return view('admin.panel-admin', [
             'title' => 'Dashboard', 

@@ -137,6 +137,10 @@ p {
   width: 110%;
 }
 
+.bottom-locale {
+  margin-bottom: -3%;
+}
+
 /*
 .scroll {
   overflow-x: scroll !important;
