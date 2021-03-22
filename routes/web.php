@@ -19,7 +19,7 @@ use App\Http\Controllers\LeadController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('login');
-Route::post('/autenticate', [AuthController::class, 'autenticate'])->name('autenticate');
+Route::post('/mfa', [AuthController::class, 'autenticate'])->name('autenticate');
 
 Route::middleware(['auth'])->group(function() {
 
