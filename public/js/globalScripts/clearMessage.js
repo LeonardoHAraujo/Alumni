@@ -14,4 +14,7 @@ $(document).ready(e => {
 
     // CLEAR MESSAGE OF LOGIN PAGE
     clearMessage($('#messageErrorLogin'))
+
+    // CLEAR MESSAGE OF MFA PAGE
+    clearMessage($('#messageErrorMFA'))
 })
