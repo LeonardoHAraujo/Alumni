@@ -50,13 +50,14 @@
 
                     <div class="p-3">
 
-                        <form class="form-horizontal m-t-30" method="post" action="">
+                        <form class="form-horizontal m-t-30" method="post" action="{{ route('mfa') }}">
 
                             @csrf
+                            <input type="hidden" name="userId" value="{{ $id }}">
 
-                            @if (session('error'))
+                            @if (session('errorCode'))
                                 <div class="alert alert-primary" id="messageErrorMFA" role="alert">
-                                    {{ session('error') }}
+                                    {{ session('errorCode') }}
                                 </div>
                             @endif
 
@@ -67,10 +68,6 @@
 
                             <div class="form-group row m-t-20">
                                 <div class="col-12 flex-center">
-                                    <!--<div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                        <label class="custom-control-label" for="customControlInline">Lembrar</label>
-                                    </div>-->
                                     <button class="btn btn-primary w-md waves-effect waves-light" tstyle="text-align: center !importtant" ype="submit">Continuar</button>
                                 </div>
                             </div>

@@ -19,7 +19,9 @@ use App\Http\Controllers\LeadController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('login');
-Route::post('/mfa', [AuthController::class, 'autenticate'])->name('autenticate');
+Route::post('/autenticate', [AuthController::class, 'autenticate'])->name('autenticate');
+Route::get('/mfa/{userId}', [AuthController::class, 'viewMfa'])->name('viewMfa');
+Route::post('/mfa', [AuthController::class, 'validateMfaCode'])->name('mfa');
 
 Route::middleware(['auth'])->group(function() {
 
