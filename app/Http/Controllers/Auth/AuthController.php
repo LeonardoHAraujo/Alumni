@@ -119,7 +119,7 @@ class AuthController extends Controller
                         return redirect()->route('students');
                     }
                 } else {
-                    return redirect("/mfa/{$request->userId}")->with('errorCode', 'O código inspirou.');
+                    return redirect("/mfa/{$request->userId}")->with('errorCode', 'O código expirou.');
                 }
             } else {
                 return redirect("/mfa/{$request->userId}")->with('errorCode', 'Código inválido.');

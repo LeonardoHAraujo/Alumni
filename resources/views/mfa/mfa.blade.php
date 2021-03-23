@@ -49,6 +49,7 @@
                     </h3>
 
                     <div class="p-3">
+                        <p class="p-mfa">O código foi enviado para seu e-mail e inspira em <b>10 minutos</b></p>
 
                         <form class="form-horizontal m-t-30" method="post" action="{{ route('mfa') }}">
 
