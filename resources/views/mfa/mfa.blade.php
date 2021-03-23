@@ -10,22 +10,22 @@
         <meta content="Themesbrand" name="author" />
 
         <!-- ICONS --> 
-        <link rel="apple-touch-icon" sizes="57x57" href="assets/newIcons/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="assets/newIcons/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="assets/newIcons/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="assets/newIcons/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="assets/newIcons/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="assets/newIcons/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="assets/newIcons/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="assets/newIcons/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/newIcons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="assets/newIcons/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/newIcons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="assets/newIcons/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/newIcons/favicon-16x16.png">
-        <link rel="manifest" href="assets/newIcons/manifest.json">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/newIcons/apple-icon-57x57.png') }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/newIcons/apple-icon-60x60.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/newIcons/apple-icon-72x72.png') }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/newIcons/apple-icon-76x76.png') }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/newIcons/apple-icon-114x114.png') }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/newIcons/apple-icon-120x120.png') }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/newIcons/apple-icon-144x144.png') }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/newIcons/apple-icon-152x152.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/newIcons/apple-icon-180x180.png') }}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('assets/newIcons/android-icon-192x192.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/newIcons/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/newIcons/favicon-96x96.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/newIcons/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('assets/newIcons/manifest.json') }}">
         <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="assets/newIcons/ms-icon-144x144.png">
+        <meta name="msapplication-TileImage" content="{{ asset('assets/newIcons/ms-icon-144x144.png') }}">
         <meta name="theme-color" content="#ffffff">
 
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
@@ -71,6 +71,12 @@
                                 <div class="col-12 flex-center">
                                     <button class="btn btn-primary w-md waves-effect waves-light" tstyle="text-align: center !importtant" ype="submit">Continuar</button>
                                 </div>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <a href="/" class="text-dark">
+                                <i class="mdi mdi-arrow-left-bold-circle"></i>
+                                Voltar ao Login </a>
                             </div>
                         </form>
                     </div>
