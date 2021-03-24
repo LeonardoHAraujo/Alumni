@@ -147,6 +147,20 @@ p {
   font-size: 102%;
 }
 
+.icon-eye-users-pass {
+  margin: auto;
+  position: absolute;
+  top: 344px;
+  margin-left: 81%;
+}
+
+.icon-eye-users-conf-pass {
+  margin: auto;
+  position: absolute;
+  top: 417px;
+  margin-left: 81%;
+}
+
 .icon-eye {
   margin: auto;
   position: absolute;

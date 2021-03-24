@@ -111,10 +111,18 @@
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="sector">Senha</label>
                         <input type="password" id="pass" class="form-control" placeholder="Senha...">
+
+                        <div class="icon-eye-users-pass" id="changeTypeInputPass">
+                            <i class="fas fa-eye-slash cursor-not-eye"></i>
+                        </div>
                     </div> 
                     <div class="form-group mx-sm-3 mb-2">
                         <label for="address">Confirme a Senha</label>
                         <input type="password" id="confirmPass" class="form-control" placeholder="Confirme a Senha...">
+
+                        <div class="icon-eye-users-conf-pass" id="changeTypeInputCPass">
+                            <i class="fas fa-eye-slash cursor-not-eye"></i>
+                        </div>
                     </div> 
                 </div>
 
@@ -142,4 +150,5 @@
 
     <!-- My script -->
     <script src="{{ asset('js/user/index.js') }}"></script>
+    <script src="{{ asset('js/globalScripts/EyeInputs/scriptEyeUsers.js') }}"></script>
 @endsection
