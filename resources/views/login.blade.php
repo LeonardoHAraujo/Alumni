@@ -32,6 +32,7 @@
         <link href="{{ asset('assets/css/metismenu.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
+        <!--<link href="{{ asset('assets/css/socials.css') }}" rel="stylesheet" type="text/css">-->
     </head>
 
     <body>
@@ -94,6 +95,22 @@
 
                 </div>
             </div>
+
+            <!--<div class="socials">
+                <a href="" class="fb connect">
+                    <i class="fab fa-facebook"></i>
+                </a>
+
+                <a href="" class="gle connect">
+                    <i class="fab fa-google fa-10x"></i>
+                </a>
+            </div>
+
+            <div class="socials">
+                <a href="" class="lkd connect">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>-->
 
             <div class="m-t-40 text-center">
                 <!-- <p class="text-white-50">Don't have an account ? <a href="#" class="text-white"> Signup Now </a> </p> -->

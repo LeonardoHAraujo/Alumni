@@ -1,0 +1,87 @@
+.socials {
+    display: flex;
+    justify-content: space-between;
+}
+
+a.fb {
+    font-family: Lucida Grande, Helvetica Neue, Helvetica, Arial, sans-serif;
+    display: inline-block;
+    font-size: 15px;
+    padding: 13px 30px 15px 25px; /*37*/
+    background: #3A5A97;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,20,.4);
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    border-radius: 5px;
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    margin-top: -3%;
+}
+
+a > i {
+    font-size: 150%;
+    padding-right: 3%;
+}
+
+.connect:before {
+    display: inline-block;
+    position: relative;
+    
+    height: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px 3px;
+    text-indent: -9999px;
+    text-align: center;
+    width: 29px;
+    line-height: 23px;
+    margin: -8px 7px -7px -30px;
+    padding: 2 25px 0 0;
+}
+
+a.gle {
+    font-family: Lucida Grande, Helvetica Neue, Helvetica, Arial, sans-serif;
+    display: inline-block;
+    font-size: 15px !important;
+    padding: 13px 30px 15px 25px; /*37*/
+    background: white;
+    text-shadow: 0 -1px 0 rgba(0,0,20,.4);
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    border-radius: 5px;
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    margin-top: -3%;
+}
+
+.fa-google {
+    background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+    font-size: 153% !important;
+}
+
+a.lkd {
+    font-family: Lucida Grande, Helvetica Neue, Helvetica, Arial, sans-serif;
+    display: inline-block;
+    font-size: 15px !important;
+    padding: 13px 30px 15px 25px; /*37*/
+    background: #2f80b8;
+    color: white;
+    text-shadow: 0 -1px 0 rgba(0,0,20,.4);
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    border-radius: 5px;
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    width: 100%;
+}
