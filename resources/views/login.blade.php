@@ -65,9 +65,13 @@
                                 <input type="text" class="form-control" name="username" id="username" placeholder="Seu-email@dominio.com...">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group input-with-icon">
                                 <label for="userpassword">Senha</label>
                                 <input type="password" class="form-control" name="pass" id="userpassword" placeholder="Sua senha...">
+
+                                <div class="icon-eye" id="changeTypeInputPass">
+                                    <i class="fas fa-eye-slash cursor-not-eye"></i>
+                                </div>
                             </div>
 
                             <div class="form-group row m-t-20">
@@ -115,6 +119,7 @@
 
         <!-- My Script -->
         <script src="{{ asset('js/globalScripts/clearMessage.js') }}"></script>
+        <script src="{{ asset('js/globalScripts/EyeInputs/scriptEyeLogin.js') }}"></script>
 
     </body>
 

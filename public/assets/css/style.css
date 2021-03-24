@@ -147,6 +147,25 @@ p {
   font-size: 102%;
 }
 
+.icon-eye {
+  margin: auto;
+  position: absolute;
+  top: 38px;
+  margin-left: 92%;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.cursor-eye {
+  cursor: pointer;
+}
+
+.cursor-not-eye:hover {
+  cursor: not-allowed;
+}
+
 /*
 .scroll {
   overflow-x: scroll !important;
