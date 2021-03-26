@@ -207,14 +207,9 @@ $(document).ready(e => {
 			country.val('')
 		}
 
-        if (
-			name.val() === '' ||
-			lastName.val() === '' ||
-			cell.val() === '' ||
-            email.val() === ''
-		) {
+        if (name.val() === '') {
 			alert.addClass('alert-primary')
-			alert.text('Os campos: Nome, Sobrenome, Celular e E-mail são obrigatórios.')
+			alert.text('O campo: Nome, é obrigatório.')
 			alert.removeClass('hide')
 			alert.addClass('show')
 

@@ -71,7 +71,7 @@ class AuthController extends Controller
                     return redirect()->route('login')->with('error', 'Email ou senha incorretos.');
                 }
             } else {
-                return redirect()->route('login')->with('error', 'Usuário inexistente.');
+                return redirect()->route('login')->with('error', 'Email ou senha incorretos.');
             }
         } else {
             return redirect()->route('login')->with('error', 'Email ou senha incorretos.');

@@ -21,12 +21,7 @@ class LeadController extends Controller
 
     public function create(Request $request)
     {
-        if (
-            !isset($request->name) || $request->name == '' ||
-            !isset($request->lastName) || $request->lastName == '' ||
-            !isset($request->cell) || $request->cell == '' ||
-            !isset($request->email) || $request->email == ''
-        ) {
+        if (!isset($request->name) || $request->name == '') {
             $response = [
                 'status' => 400,
                 'message' => 'Ops! Algo deu errado, contate o administrador.'
@@ -83,10 +78,7 @@ class LeadController extends Controller
     {
         if (
             !isset($request->id) || $request->id == '' ||
-            !isset($request->name) || $request->name == '' ||
-            !isset($request->lastName) || $request->lastName == '' ||
-            !isset($request->cell) || $request->cell == '' ||
-            !isset($request->email) || $request->email == '' 
+            !isset($request->name) || $request->name == '' 
         ) {
             $response = [
                 'status' => 400,

@@ -16,7 +16,7 @@ class CreateLeadsTable extends Migration
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('lastName');
+            $table->string('lastName')->nullable();
 
             $table->string('company')->nullable();
             $table->string('linkedin')->unique()->nullable();
@@ -25,9 +25,9 @@ class CreateLeadsTable extends Migration
             $table->string('contactPoint')->nullable();
             $table->date('dateFirstContact')->nullable();
 
-            $table->string('cell')->unique();
+            $table->string('cell')->unique()->nullable();
             $table->string('telephone')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('emailSecondary')->nullable();
 
             $table->timestamps();
