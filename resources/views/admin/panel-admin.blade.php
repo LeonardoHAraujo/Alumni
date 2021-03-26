@@ -124,8 +124,8 @@
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Sobrenome</th>
-                                    <th scope="col">Empresa</th>
-                                    <th scope="col" colspan="2">Cidade</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col" colspan="2">Celular</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -138,8 +138,8 @@
                                                 </div>
                                             </td>
                                             <td>{{ $leads->lastName }}</td>
-                                            <td>{{ $leads->company }}</td>
-                                            <td>{{ $leads->city }}</td>
+                                            <td>{{ $leads->email }}</td>
+                                            <td>{{ $leads->cell }}</td>
                                         </tr>
                                     @endif
                                 @endforeach

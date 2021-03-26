@@ -33,29 +33,52 @@ class SettingsController extends Controller
 
         try {
 
-            $salt = Keygen::bytes(50)->hex()->generate();
+            $isUserExists = User::where('email', $request->email)->first();
+
+            if ($isUserExists && $isUserExists->isActive === 1) {
+
+                $response = [
+                    'status' => 400,
+                    'message' => 'Usuário já existente.'
+                ];
+
+                return $response;
+
+            } elseif ($isUserExists && $isUserExists->isActive === 0) {
+
+                $response = [
+                    'status' => 400,
+                    'message' => 'Usuário existente em: Usuários deletados.'
+                ];
+
+                return $response;
+                
+            } else {
+
+                $salt = Keygen::bytes(50)->hex()->generate();
             
-            $user = new User();
-            $user->name = $request->name;
-            $user->lastName = $request->lastName;
-            $user->email = $request->email;
-            $user->isAdmin = $isAdmin;
-            $user->password = Hash::make($request->confirmPass.$salt);
-            $user->salt = $salt;
-            $user->save();
+                $user = new User();
+                $user->name = $request->name;
+                $user->lastName = $request->lastName;
+                $user->email = $request->email;
+                $user->isAdmin = $isAdmin;
+                $user->password = Hash::make($request->confirmPass.$salt);
+                $user->salt = $salt;
+                $user->save();
 
-            $response = [
-                'status' => 200,
-                'message' => 'Usuário criado com sucesso.'
-            ];
+                $response = [
+                    'status' => 200,
+                    'message' => 'Usuário criado com sucesso.'
+                ];
 
-            return $response;
+                return $response;
+            }
 
         } catch (Exception $e) {
 
             $response = [
                 'status' => 400,
-                'message' => 'Usuário já existente.'
+                'message' => $e->getMessage()
             ];
 
             return $response;
