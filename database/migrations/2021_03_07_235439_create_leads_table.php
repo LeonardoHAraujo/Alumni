@@ -19,15 +19,15 @@ class CreateLeadsTable extends Migration
             $table->string('lastName')->nullable();
 
             $table->string('company')->nullable();
-            $table->string('linkedin')->unique()->nullable();
+            $table->string('linkedin')->nullable();
             $table->string('formation')->nullable();
 
             $table->string('contactPoint')->nullable();
             $table->date('dateFirstContact')->nullable();
 
-            $table->string('cell')->unique()->nullable();
+            $table->string('cell')->nullable();
             $table->string('telephone')->nullable();
-            $table->string('email')->unique()->nullable();
+            $table->string('email')->nullable();
             $table->string('emailSecondary')->nullable();
 
             $table->timestamps();
