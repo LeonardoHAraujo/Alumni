@@ -1,4 +1,6 @@
-Alumni Antebellum
+# Alumni Antebellum
+
+*Powered by Leonardo Araújo*
 
     run git clone https://github.com/LeonardoHAraujo/Alumni.git
     run composer update for installing dependencies
@@ -8,7 +10,7 @@ Alumni Antebellum
     run php artisan serve
 
 
-Deploy app
+## Deploy app
 
     In requests ajax of the JS, add prefix "/Alumni/public" in field "url".
         Example => url: "/Alumni/public/reactivateUsers"
